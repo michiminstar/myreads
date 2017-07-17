@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ListBooks from './ListBooks'
 import { Route, Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
 import SearchBooks from './SearchBooks'
@@ -29,9 +28,6 @@ class BooksApp extends Component {
     return (
       <div className="app">
         <Route exact path="/" render={() => (
-          <ListBooks
-            books={this.state.books}
-          />
           <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
