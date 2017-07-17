@@ -10,6 +10,13 @@ class BooksApp extends Component {
     super(props)
     this.state = { books: [] }
   }
+
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
+  }
+
   }
 
   render() {
@@ -17,6 +24,7 @@ class BooksApp extends Component {
       <div className="app">
         <Route exact path="/" render={() => (
           <ListBooks
+            books={this.state.books}
           />
         )} />
         <Route path="/search" component={SearchBooks} />
