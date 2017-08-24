@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Book from './Book'
 
-class ListBooks extends Component {
+class BookShelf extends Component {
 
   static PropTypes = {
     books: PropTypes.array.isRequired,
@@ -10,7 +10,7 @@ class ListBooks extends Component {
   }
 
   render() {
-    const { books, shelfTitle } = this.props
+    const { books, shelfTitle, onChangeShelf } = this.props
 
     return (
       <div className="bookshelf">
@@ -21,6 +21,7 @@ class ListBooks extends Component {
               <Book
                 key={book.id}
                 book={book}
+                changeShelf={onChangeShelf}
               />
             )) }
           </ol>
@@ -31,4 +32,4 @@ class ListBooks extends Component {
 
 }
 
-export default ListBooks
+export default BookShelf
