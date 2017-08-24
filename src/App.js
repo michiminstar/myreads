@@ -6,9 +6,9 @@ import * as BooksAPI from './BooksAPI'
 import './App.css'
 
 class BooksApp extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { books: [] }
+  state = {
+      books: [],
+      bookResults: []
   }
 
   componentDidMount() {
