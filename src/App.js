@@ -11,12 +11,26 @@ class BooksApp extends Component {
       bookResults: []
   }
 
+  // Fetch all book data
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books })
     })
   }
 
+  getAllBooks = () => {
+    BooksAPI.getAll().then((books) => {
+      this.setState({ books })
+    })
+  }
+
+  // Update the shelf
+  // Using an *arrow* function ensures `this` is bound to a component
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then((res) => {
+      console.log('updated book', book)
+      this.getAllBooks()
+    })
   }
 
   render() {
