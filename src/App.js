@@ -52,17 +52,17 @@ class BooksApp extends Component {
                 <BookShelf
                   books={currentlyReading}
                   shelfTitle='Currently Reading'
-                  onSelectShelf={this.updateShelf}
+                  onChangeShelf={this.changeShelf}
                 />
                 <BookShelf
                   books={wantToRead}
                   shelfTitle='Want to Read'
-                  onSelectShelf={this.updateShelf}
+                  onChangeShelf={this.changeShelf}
                 />
                 <BookShelf
                   books={read}
                   shelfTitle='Read'
-                  onSelectShelf={this.updateShelf}
+                  onChangeShelf={this.changeShelf}
                 />
                 <div className="open-search">
                   <Link to="/search">Add a book</Link>
