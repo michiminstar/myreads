@@ -33,8 +33,36 @@ class BooksApp extends Component {
     })
   }
 
+  // Clear query
+  clearQuery = (query) => {
+    this.setState({ bookResults: [] })
+  }
+
+  // Search books
+  searchBooks = (query, maxResults) => {
+    (!query) && this.clearQuery()
+
+    query.length > 0 && BooksAPI.search(query, maxResults).then((results) => {
+      console.log(results)
+
+      if(!results.error){
+        results.map((result) => {
+          let match = this.state.books.filter(book => book.id === result.id)
+
+          if(match.length > 0) {
+            return match
+          } else {
+            return result.shelf = 'none'
+          }
+        })
+
+        this.setState({ bookResults: results })
+      }
+    })
+  }
+
   render() {
-    const { books } = this.state
+    const { books, bookResults } = this.state
     const currentlyReading = books.filter((book)=> book.shelf === 'currentlyReading')
     const wantToRead = books.filter((book)=> book.shelf === 'wantToRead')
     const read = books.filter((book)=> book.shelf === 'read')
