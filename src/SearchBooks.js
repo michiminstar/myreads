@@ -5,6 +5,12 @@ import Book from './Book'
 
 class SearchBooks extends Component {
 
+  static PropTypes = {
+    books: PropTypes.array.isRequired,
+    onChangeShelf: PropTypes.func.isRequired,
+    onSearchBooks: PropTypes.func.isRequired
+  }
+
   render() {
     return (
       <div className="search-books">
