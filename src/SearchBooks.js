@@ -12,16 +12,30 @@ class SearchBooks extends Component {
   }
 
   render() {
+    const { books, onChangeShelf, onSearchBooks } = this.props
+
     return (
       <div className="search-books">
         <div className="search-books-bar">
           <Link className="close-search" to="/">Close</Link>
           <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title or author"/>
+            <input
+              type="text"
+              placeholder="Search by title or author"
+              onChange={ (event) => onSearchBooks(event.target.value, 30)}
+            />
           </div>
         </div>
         <div className="search-books-results">
-          <ol className="books-grid"></ol>
+          <ol className="books-grid">
+            { books.map((book) => (
+              <Book
+                key={book.id}
+                book={book}
+                changeShelf={onChangeShelf}
+              />
+            )) }
+          </ol>
         </div>
       </div>
     )
