@@ -3,8 +3,8 @@ A simple book management app for Udacity's course assignment.
 
 ## Project Setup
 * clone the project - git clone https://github.com/michiminstar/myreads.git
-* install the dependencies - npm install
-* start the server - yarn start
+* install the dependencies - `npm install`
+* start the server - `yarn start`
 
 ## What You're Getting
 ```
