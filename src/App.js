@@ -28,7 +28,6 @@ class BooksApp extends Component {
   // Using an *arrow* function ensures `this` is bound to a component
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then((res) => {
-      console.log('updated book', book)
       this.getAllBooks()
     })
   }
@@ -43,8 +42,6 @@ class BooksApp extends Component {
     (!query) && this.clearQuery()
 
     query.length > 0 && BooksAPI.search(query, maxResults).then((results) => {
-      console.log(results)
-
       if(!results.error){
         results.map((result) => {
           let match = this.state.books.filter(book => book.id === result.id)
