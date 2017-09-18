@@ -7,7 +7,6 @@ class Book extends Component {
     const bgImage = {
       backgroundImage: `url(${book.imageLinks.thumbnail})`
     }
-    console.log(book.imageLinks)
 
     return (
       <li>
