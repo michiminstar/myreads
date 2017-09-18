@@ -4,15 +4,12 @@ class Book extends Component {
 
   render() {
     const { book, changeShelf } = this.props
-    console.log(book.shelf)
 
     return (
       <li>
         <div className='book'>
           <div className="book-top">
             <div className="book-cover" style={{
-              width: 128,
-              height: 193,
               backgroundImage: `url(${book.imageLinks.thumbnail})`
             }} />
             <div className="book-shelf-changer">
