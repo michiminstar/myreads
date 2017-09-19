@@ -25,10 +25,14 @@ class BooksApp extends Component {
   }
 
   // Update the shelf
-  // Using an *arrow* function ensures `this` is bound to a component
+  // MEMO: Using an *arrow* function ensures `this` is bound to a component
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then((res) => {
-      this.getAllBooks()
+      if (!res.error) {
+        book.shelf = shelf
+        let updatedBooks = this.state.books.filter((b) => b.id !== book.id).concat([book]);
+        this.setState({books: updatedBooks})
+      }
     })
   }
 
