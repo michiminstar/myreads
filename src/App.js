@@ -60,9 +60,9 @@ class BooksApp extends Component {
 
   render() {
     const { books, bookResults } = this.state
-    const currentlyReading = books.filter((book)=> book.shelf === 'currentlyReading')
-    const wantToRead = books.filter((book)=> book.shelf === 'wantToRead')
-    const read = books.filter((book)=> book.shelf === 'read')
+    const currentlyReading = books.filter((book) => book.shelf === 'currentlyReading')
+    const wantToRead = books.filter((book) => book.shelf === 'wantToRead')
+    const read = books.filter((book) => book.shelf === 'read')
 
     return (
       <div className="app">
