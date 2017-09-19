@@ -53,7 +53,7 @@ class BooksApp extends Component {
           let match = this.state.books.filter(book => book.id === result.id)
 
           if(match.length > 0) {
-            result.shelf = match.shelf
+            result.shelf = match[0].shelf
           } else {
             result.shelf = 'none'
           }
