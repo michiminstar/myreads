@@ -30,7 +30,7 @@ class BooksApp extends Component {
     BooksAPI.update(book, shelf).then((res) => {
       if (!res.error) {
         book.shelf = shelf
-        let updatedBooks = this.state.books.filter((b) => b.id !== book.id).concat([book]);
+        let updatedBooks = this.state.books.filter((b) => b.id !== book.id).concat([book])
         this.setState({books: updatedBooks})
       }
     })
@@ -46,15 +46,17 @@ class BooksApp extends Component {
     (!query) && this.clearQuery()
 
     query.length > 0 && BooksAPI.search(query, maxResults).then((results) => {
-      if(!results.error){
+      if(!results.error) {
         results.map((result) => {
           let match = this.state.books.filter(book => book.id === result.id)
 
           if(match.length > 0) {
-            return match
+            result.shelf = match.shelf
           } else {
-            return result.shelf = 'none'
+            result.shelf = 'none'
           }
+
+          return result
         })
 
         this.setState({ bookResults: results })
